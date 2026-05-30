@@ -1,7 +1,4 @@
-{
-  lib,
-  ...
-}: {
+{lib, ...}: {
   networking = {
     useNetworkd = true;
     useDHCP = lib.mkForce false;

@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: let
+{config, ...}: let
   host = config.networking.hostName;
 in {
   services.openssh = {

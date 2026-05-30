@@ -1,13 +1,10 @@
-{
-  lib,
-  ...
-}: {
+{lib, ...}: {
   imports =
     [
-      ./host.nix
+      ./identity.nix
       ./network.nix
-      ./features
-      ../../modules/system/homelab
+      ./enabled
+      ./system
       ../../modules/system/users.nix
     ]
     ++ lib.optional (builtins.pathExists ./hardware-configuration.nix) ./hardware-configuration.nix;

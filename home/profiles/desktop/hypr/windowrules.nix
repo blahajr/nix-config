@@ -1,0 +1,25 @@
+{
+  windowrulev2 = [
+    "suppressevent maximize, class:.*"
+    "float, class:^(superfile)$"
+    "size 50% 100%, class:^(superfile)$"
+    "minsize 500 560, class:^(superfile)$"
+    "move 0 0, class:^(superfile)$"
+    "float, class:^(walt)$"
+    "size 900 600, class:^(walt)$"
+    "center, class:^(walt)$"
+    "tile, class:^(kitty)$"
+    "tile, class:^(firefox)$"
+    "tile, class:^(zen)$"
+    "tile, class:^(thunar)$"
+    "float, class:^(Rofi)$"
+    "float, class:^(rofi)$"
+    "float, class:^(pavucontrol)$"
+    "float, class:^(wlogout)$"
+    "float, class:^(nm-applet)$"
+    "float, class:^(nm-connection-editor)$"
+    "float, title:^(Picture-in-Picture)$"
+    "center, class:^(pavucontrol)$"
+    "center, class:^(wlogout)$"
+  ];
+}

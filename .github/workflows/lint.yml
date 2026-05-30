@@ -1,43 +1,31 @@
-name: Lint
+name: CI
 
 on:
   push:
-    branches:
-      - main
-    paths-ignore:
-      - '.github/**'
-      - 'README.md'
+    branches: [main, master]
   pull_request:
-    branches:
-      - main
-    paths-ignore:
-      - '.github/**'
-      - 'README.md'
+    branches: [main, master]
+
+permissions:
+  contents: write
 
 jobs:
-  lint:
+  fmt:
     runs-on: ubuntu-latest
-    outputs:
-      lint-success: ${{ steps.build-result.outputs.success }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
+      - uses: cachix/install-nix-action@v31
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
 
-      - name: Run statix linter
+      - run: nix fmt .
+
+      - name: Commit formatted files
         run: |
-          echo "Linting Flake..."
-          if nix run --extra-experimental-features 'nix-command flakes' nixpkgs#statix -- check .; then
-            echo "success=true" >> $GITHUB_ENV
-          else
-            echo "Lint failed, listing flake.lock for debugging:"
-            cat flake.lock
-            echo "success=false" >> $GITHUB_ENV
-            exit 1
-          fi
-
-      - name: Determine lint result
-        id: build-result
-        run: echo "success=${{ env.success }}" >> $GITHUB_OUTPUT
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet && exit 0
+          git add -A
+          git commit -m "style: auto-format"
+          git push

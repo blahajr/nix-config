@@ -39,10 +39,10 @@ in {
 
   home-manager.users = lib.mkMerge [
     (lib.mkIf (host == "thinkpad") {
-      ${thinkpadUser} = import ../../home/blahja/thinkpad;
+      ${thinkpadUser} = import ../../home/users/blahja/hosts/thinkpad.nix;
     })
     (lib.mkIf (host == "homelab") {
-      ${homelabUser} = import ../../home/root;
+      ${homelabUser} = import ../../home/users/root;
     })
   ];
 }

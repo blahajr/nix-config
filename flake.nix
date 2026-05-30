@@ -7,8 +7,6 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    impermanence.url = "github:nix-community/impermanence";
-
     walt.url = "github:gitfudge0/walt";
     walt.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -39,11 +37,7 @@
     }:
       home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [
-          ./modules/settings.nix
-          inputs.catppuccin.homeModules.catppuccin
-        ]
-        ++ modules;
+        modules = modules;
         extraSpecialArgs = {
           inherit inputs hostName;
         };
@@ -59,7 +53,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in {
         statix = pkgs.runCommand "statix-check" {} ''
-          ${pkgs.statix}/bin/statix check ${./.}
+          ${pkgs.statix}/bin/statix check -c ${./statix.toml} ${./.}
           touch $out
         '';
         deadnix = pkgs.runCommand "deadnix-check" {} ''
@@ -69,22 +63,16 @@
       }
     );
 
-    nixosModules = {
-      settings = import ./modules/settings.nix;
-      thinkpad = import ./modules/system/thinkpad;
-      homelab = import ./modules/system/homelab;
-      users = import ./modules/system/users.nix;
-    };
     homeManagerModules = import ./modules/home-manager;
 
     homeConfigurations = {
       "blahja@thinkpad" = mkHomeConfiguration {
         hostName = "thinkpad";
-        modules = [./home/blahja/thinkpad];
+        modules = [./home/users/blahja/hosts/thinkpad.nix];
       };
       "root@homelab" = mkHomeConfiguration {
         hostName = "homelab";
-        modules = [./home/root];
+        modules = [./home/users/root];
       };
     };
 

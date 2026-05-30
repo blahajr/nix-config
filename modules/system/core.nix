@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: let
+{config, ...}: let
   settings = config.settings;
 in {
   nixpkgs.config.allowUnfree = true;
