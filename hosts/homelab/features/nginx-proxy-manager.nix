@@ -1,0 +1,5 @@
+{
+  ...
+}: {
+  homelab.nginxProxyManager.enable = false;
+}

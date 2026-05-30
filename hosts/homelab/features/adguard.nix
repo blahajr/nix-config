@@ -1,0 +1,5 @@
+{
+  ...
+}: {
+  homelab.adguard.enable = false;
+}

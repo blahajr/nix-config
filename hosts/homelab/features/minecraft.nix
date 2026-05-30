@@ -1,0 +1,7 @@
+{
+  ...
+}: {
+  homelab.minecraftServer = {
+    enable = false;
+  };
+}
