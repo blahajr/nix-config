@@ -15,8 +15,8 @@ flakes provided are for my **thinkpad** (Hyprland) and **homelab** (headless).
 
 | Host       | role                              | default user | Hardware                         |                                           |
 | ------------| -----------------------------------| --------------| ----------------------------------| ------------------------------------------------|
-| `thinkpad` | Wayland desktop (SDDM & Hyprland) | `blahja`     | ThinkPad · i7-8650U · 16 GiB     | `sudo nixos-rebuild switch --flake .#thinkpad` |
-| `homelab`  | Server                            | `root`       | OptiPlex 7040 · i7-6700 · 32 GiB | `sudo nixos-rebuild switch --flake .#homelab`  |
+| `thinkpad` | my daily laptop (SDDM + Hyprland) | `blahja`     | ThinkPad · i7-8650U · 16 GiB     | `sudo nixos-rebuild switch --flake .#thinkpad` |
+| `homelab`  | my home server                            | `root`       | OptiPlex 7040 · i7-6700 · 32 GiB | `sudo nixos-rebuild switch --flake .#homelab`  |
 
 
 ## Thinkpad
