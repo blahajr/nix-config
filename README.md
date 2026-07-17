@@ -4,7 +4,9 @@
 
 
 
-Personal nix config built with [NixOS](https://nixos.org/) and [Home Manager](https://github.com/nix-community/home-manager).  flakes are for my **thinkpad** (Hyprland) and **homelab** (headless).
+Personal nix config built with [NixOS](https://nixos.org/) and [Home Manager](https://github.com/nix-community/home-manager). 
+
+flakes provided are for my **thinkpad** (Hyprland) and **homelab** (headless).
 
 
 
@@ -25,11 +27,11 @@ Personal nix config built with [NixOS](https://nixos.org/) and [Home Manager](ht
 | Compositor       | [Hyprland](https://hyprland.org/), hypridle, hyprlock, hyprshot, wlogout                     |
 | Bar & launcher   | [Waybar](https://github.com/Alexays/Waybar), [Rofi](https://github.com/davatorium/rofi)      |
 | Terminal & files | [Kitty](https://sw.kovidgoyal.net/kitty/), [Superfile](https://github.com/yorukot/superfile) |
-| Shell            | [Zsh](https://www.zsh.org/) (oh-my-zsh), fzf, fastfetch                                      |
+| Shell            | [Zsh](https://www.zsh.org/)& (oh-my-zsh), fastfetch                                          |
 | Editor           | [Neovim](https://neovim.io/)                                                                 |
 | Notifications    | [Dunst](https://github.com/dunst-project/dunst)                                              |
 | Wallpapers       | [Walt](https://github.com/gitfudge0/walt)                                                    |
-| Look             | Catppuccin mocha for majority of theming                                                     |
+| Look             | Catppuccin mocha for majority                                                                |
 | Dotfiles         | [blahajr/dotfiles](https://github.com/blahajr/dotfiles)                                      |
 
 
