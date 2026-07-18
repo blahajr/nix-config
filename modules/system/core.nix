@@ -16,7 +16,7 @@ in {
     settings = {
       experimental-features = ["nix-command" "flakes"];
       flake-registry = "";
-      download-buffer-size = 536870912;
+      download-buffer-size = 1073741824;
     };
     channel.enable = false;
   };
